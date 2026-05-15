@@ -458,6 +458,20 @@ input[type=range]::-webkit-slider-runnable-track { background: linear-gradient(t
 </head>
 <body>
 
+<audio id="bgm" src="othello.mp3" loop></audio>
+
+window.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgm");
+  audio.volume = 0.3;
+
+  const start = () => {
+    audio.play().catch(()=>{});
+    document.removeEventListener("click", start);
+  };
+
+  document.addEventListener("click", start);
+});
+
 <!-- ============ MENU SCREEN ============ -->
 <div id="menu" class="screen active">
   <div class="menu-title">OTHELLO</div>
